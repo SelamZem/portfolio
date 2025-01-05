@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS `portfolio` (
+    `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `project_name` VARCHAR(255) NOT NULL,
+    `description` TEXT NOT NULL,
+    `image_url` VARCHAR(255) NULL, 
+    `project_link` VARCHAR(255) NULL,  
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
