@@ -359,16 +359,14 @@ $conn = $db->getConnection();
 </section>
 
 <!-- ///////////////////////////////////////////////////////////////////////////////////////////
-                           START SECTION  - THE FOOTER  
+                           contacts
 ///////////////////////////////////////////////////////////////////////////////////////////////-->
 <section id="contact" class="contact bg-light py-5">
   <div class="container">
     <div class="row text-center">
-      <h1 class="display-4 fw-bold">Contact Messages</h1>
+      <h1 class="display-4 fw-bold">Contact us</h1>
       <hr style="width: 100px; height: 3px; background-color: #000;" class="mx-auto">
-      <p class="lead pt-3">
-        Here are the messages we've received from our valued users. Feel free to get in touch with us anytime!
-      </p>
+
     </div>
 
     <?php

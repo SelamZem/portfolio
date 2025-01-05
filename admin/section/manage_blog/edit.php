@@ -2,7 +2,7 @@
 require_once '../../auth.php';
 require_once '../../../includes/Database.php';
 
-checkAuth(); // Check if the user is authenticated
+checkAuth(); 
 
 $db = new Database();
 $conn = $db->getConnection();
@@ -10,16 +10,16 @@ $conn = $db->getConnection();
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
-    // Fetch the blog post to edit
+    
     $query = "SELECT * FROM blog WHERE id = :id";
     $stmt = $conn->prepare($query);
     $stmt->bindParam(':id', $id, PDO::PARAM_INT);
     $stmt->execute();
     $blog = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    // Check if the blog post exists
+    
     if (!$blog) {
-        header("Location: index.php"); // Redirect to blog list if not found
+        header("Location: index.php"); 
         exit;
     }
 
@@ -28,7 +28,7 @@ if (isset($_GET['id'])) {
         $content = $_POST['content'];
         $author = $_POST['author'];
 
-        // Update the blog post
+        
         $query = "UPDATE blog SET title = :title, content = :content, author = :author, updated_at = NOW() WHERE id = :id";
         $stmt = $conn->prepare($query);
         $stmt->bindParam(':title', $title);
@@ -37,14 +37,14 @@ if (isset($_GET['id'])) {
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
 
         if ($stmt->execute()) {
-            header("Location: index.php"); // Redirect to blog list after successful update
+            header("Location: index.php");
             exit;
         } else {
             $error = "Failed to update the blog post.";
         }
     }
 } else {
-    header("Location: index.php"); // Redirect to blog list if 'id' is not set
+    header("Location: index.php"); 
     exit;
 }
 ?>

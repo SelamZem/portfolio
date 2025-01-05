@@ -2,12 +2,12 @@
 require_once '../../auth.php';
 require_once '../../../includes/Database.php';
 
-checkAuth(); // Check if the user is authenticated
+checkAuth();
 
 $db = new Database();
 $conn = $db->getConnection();
 
-// Fetch all 'about' content from the database
+
 $query = "SELECT * FROM about ORDER BY created_at DESC";
 $stmt = $conn->prepare($query);
 $stmt->execute();

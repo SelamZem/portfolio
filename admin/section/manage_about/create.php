@@ -2,12 +2,12 @@
 require_once '../../auth.php';
 require_once '../../../includes/Database.php';
 
-checkAuth(); // Check if the user is authenticated
+checkAuth(); 
 
 $db = new Database();
 $conn = $db->getConnection();
 
-// Check if the form is submitted
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $title = $_POST['title'];
     $content = $_POST['content'];

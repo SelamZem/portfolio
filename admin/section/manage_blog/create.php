@@ -2,7 +2,7 @@
 require_once '../../auth.php';
 require_once '../../../includes/Database.php';
 
-checkAuth(); // Check if the user is authenticated
+checkAuth(); 
 
 $db = new Database();
 $conn = $db->getConnection();
@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bindParam(':author', $author);
 
     if ($stmt->execute()) {
-        header("Location: index.php"); // Redirect to blog list after successful creation
+        header("Location: index.php"); 
         exit;
     } else {
         $error = "Failed to create the blog post.";

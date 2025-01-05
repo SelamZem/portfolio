@@ -2,41 +2,40 @@
 require_once '../../auth.php';
 require_once '../../../includes/Database.php';
 
-checkAuth(); // Check if the user is authenticated
+checkAuth(); 
 
 $db = new Database();
 $conn = $db->getConnection();
 
-// Check if the ID parameter is passed for editing
+
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
-    // Fetch the existing data for the FAQ record
+   
     $query = "SELECT * FROM faq WHERE id = :id";
     $stmt = $conn->prepare($query);
     $stmt->bindParam(':id', $id);
     $stmt->execute();
 
-    // Fetch the result
+
     $faq = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    // If no data found, redirect to index
+  
     if (!$faq) {
         header("Location: index.php");
         exit;
     }
 } else {
-    // If no ID is passed, redirect to index
+   
     header("Location: index.php");
     exit;
 }
 
-// Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $question = $_POST['question'];
     $answer = $_POST['answer'];
 
-    // Update the FAQ record
+  
     $query = "UPDATE faq SET question = :question, answer = :answer WHERE id = :id";
     $stmt = $conn->prepare($query);
     $stmt->bindParam(':question', $question);

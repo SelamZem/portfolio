@@ -2,12 +2,12 @@
 require_once '../../auth.php';
 require_once '../../../includes/Database.php';
 
-checkAuth(); // Check if the user is authenticated
+checkAuth(); 
 
 $db = new Database();
 $conn = $db->getConnection();
 
-// Check if the form is submitted
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST['name'];
     $email = $_POST['email'];
@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bindParam(':message', $message);
 
     if ($stmt->execute()) {
-        header("Location: index.php"); // Redirect to the index page after success
+        header("Location: index.php"); 
         exit;
     } else {
         $error = "Failed to create the contact.";
