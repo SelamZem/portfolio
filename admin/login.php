@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($stmt->rowCount() > 0) {
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
         
-        // Verify the password using password_verify (assuming the password is hashed in the database)
+       
         if (password_verify($password, $user['password'])) {
             $_SESSION['admin_id'] = $user['id']; 
             $_SESSION['admin_username'] = $user['username'];
