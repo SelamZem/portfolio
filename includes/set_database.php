@@ -3,7 +3,7 @@ require_once 'includes/Database.php';
 
 
 $db = new Database();
-$conn = $db->getConnection(); // Get the PDO connection (updated method name)
+$conn = $db->getConnection(); 
 
 
 function runSQLFile($file_path, $conn) {
